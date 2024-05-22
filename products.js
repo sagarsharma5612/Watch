@@ -63,3 +63,34 @@ const Products = [{
     desc:'Timax Watch for Men',
 },
 ]
+
+const Watch_Products = document.querySelector('.watch-products')
+
+Watch_Products.innerHTML = Products.map((value) =>{
+  const {id,img,name,price,quantity,desc} = value;
+
+
+  return `
+  <div class="products">
+  <img src="${img}" alt="images">
+  <div class="card-details">
+  <h3>${name}</h3>
+  <p>${price}</p>
+  <p id="quantity">Quantity ${quantity}</p>
+  </div>
+  <div class="quantity">
+  <button class="incri btn1" onclick="incri()">-</button>
+  <button class="value">0</button>
+  <button class="decri btn1" onclick="decri()">+</button>
+  </div>
+  <div class="cart">
+  <button id="btn">Buy Now</button>
+  <button id="btn" onclick="add_to_cart('${id}','${img}','${name}','${price}','${quantity}','${desc}'
+  )">Add to Cart</button>
+  </div>
+  <div class="desc-container">
+  <p class="desc">${desc}</p>
+  </div>
+  </div>
+  `
+})
